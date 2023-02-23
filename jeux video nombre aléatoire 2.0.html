@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jeu de Devinette</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #e6f7ff;
+			text-align: center;
+		}
+
+		h1 {
+			color: #0077b3;
+			margin-top: 50px;
+		}
+
+		p {
+			font-size: 30;
+			color: #666;
+			margin: 40;
+		}
+
+		input {
+			padding: px;
+			font-size: 30px;
+			border-radius: 10px;
+			border: none;
+			background-color: #f2f2f2;
+			margin-bottom: 40px
+		}
+
+		button {
+			padding: 40px;
+			font-size: 30px;
+			border-radius: 10px;
+			border: none;
+			background-color: #0077b3;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #005c8a;
+		}
+
+		#result {
+			font-size: 24px;
+			color: #0077b3;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Jeu de Devinette</h1>
+	<p>Devinez un nombre entre 1 et 100:</p>
+	<input type="text" id="guess">
+	<button onclick="checkGuess()">Soumettre</button>
+	<p id="result"></p>
+
+	<script>
+		// Générer un nombre aléatoire entre 1 et 100
+		var answer = Math.floor(Math.random() * 100) + 1;
+
+		function checkGuess() {
+			// Obtenir la valeur de la devinette de l'utilisateur
+			var guess = document.getElementById("guess").value;
+
+			// Vérifier si la réponse est correcte, trop haute ou trop basse
+			if (guess == answer) {
+				document.getElementById("result").innerHTML = "Bravo, vous avez trouvé le bon nombre!";
+			} else if (guess > answer) {
+				document.getElementById("result").innerHTML = "Le nombre est trop élevé, essayez à nouveau!";
+			} else {
+				document.getElementById("result").innerHTML = "Le nombre est trop bas, essayez à nouveau!";
+			}
+		}
+	</script>
+</body>
+</html>
